@@ -21,11 +21,10 @@ def emotion_detect ():
     if dominous is None :
         return "Invalid text! Please try again!."
     else:
-        
-
+        return "For the given statement, the system response is 'anger' {}, 'disgust' {}, 'fear' {}, 'joy' {} and 'sadness' {}. The dominant emotion is {}".format(angered, disgusted, feared, joyous, sadded, dominous)
 
 @app.route("/")
-def render_index_page(): 
+def render_index_page():
     '''for indexing page'''
     return render_template('index.html')
 
