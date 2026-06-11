@@ -15,7 +15,12 @@ def emotion_detect ():
     sadded = response['sadness']
     dominous = response['dominant_emotion']
 
-    return "For the given statement, the system response is 'anger': {}, 'disgust': {}, 'fear': {}, 'joy': {} and 'sadness': {}. The dominant emotion is {}".format(angered, disgusted, feared, joyous, sadded, dominous)
+    if dominous is None :
+        return "Invalid text! Please try again!."
+    
+    
+    else :
+        return "For the given statement, the system response is 'anger': {}, 'disgust': {}, 'fear': {}, 'joy': {} and 'sadness': {}. The dominant emotion is {}".format(angered, disgusted, feared, joyous, sadded, dominous)
 
 @app.route("/")
 def render_index_page():
@@ -23,4 +28,4 @@ def render_index_page():
     #TODO
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=7000)
