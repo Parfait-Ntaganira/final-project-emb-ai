@@ -12,16 +12,18 @@ def emotion_detect ():
     '''for emotion detection'''
     text_to_analyze = request.args.get('textToAnalyze')
     response = emotion_detector(text_to_analyze)
-    angered = response['anger']
-    disgusted = response['disgust']
-    feared = response['fear']
-    joyous = response['joy']
-    sadded = response['sadness']
+    an = response['anger']
+    di = response['disgust']
+    fe = response['fear']
+    jo = response['joy']
+    sa = response['sadness']
     dominous = response['dominant_emotion']
+    p1 = "For the given statement, the system response is 'anger'"
+    p2 = "The dominant emotion is "
     if dominous is None :
         return "Invalid text! Please try again!."
-    else:
-        return "For the given statement, the system response is 'anger' {}, 'disgust' {}, 'fear' {}, 'joy' {} and 'sadness' {}. The dominant emotion is {}".format(angered, disgusted, feared, joyous, sadded, dominous)
+    return f"{p1}:{an}, 'disgust':{di}, 'fear':{fe}, 'joy':{jo} and 'sadness':{sa}. {p2} {dominous}"
+
 
 @app.route("/")
 def render_index_page():
